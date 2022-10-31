@@ -1,0 +1,159 @@
+{
+  "patients": [
+    {
+      "name": "asd3",
+      "email": "admin@gmail.com",
+      "id": 2
+    },
+    {
+      "name": "ujkg",
+      "email": "michalc1101@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "mif",
+      "email": "admin@softwarehut.com",
+      "id": 5
+    },
+    {
+      "name": "michael1",
+      "email": "michael@bee2code.com",
+      "id": 6
+    },
+    {
+      "name": "michael1",
+      "email": "admin@bee2code.com",
+      "id": 7
+    },
+    {
+      "name": "michael12",
+      "email": "admin@bee2code.com",
+      "id": 8
+    }
+  ],
+  "projects": [
+    {
+      "name": "projekt 1",
+      "id": 2
+    },
+    {
+      "name": "projekt 1",
+      "id": 3
+    },
+    {
+      "name": "projekt 3",
+      "id": 4
+    },
+    {
+      "name": "projekt 4",
+      "id": 5
+    },
+    {
+      "name": "projekt 5",
+      "id": 6
+    },
+    {
+      "name": "projekt 6",
+      "id": 7
+    }
+  ],
+  "patientsInProjects": [
+    {
+      "idPatient": 2,
+      "namePatient": "asd3",
+      "idProject": 4,
+      "nameProject": "projekt 3",
+      "aprproval": false,
+      "id": 1
+    },
+    {
+      "idPatient": 6,
+      "namePatient": "michael1",
+      "idProject": 4,
+      "nameProject": "projekt 3",
+      "aprproval": false,
+      "id": 3
+    },
+    {
+      "idPatient": 6,
+      "namePatient": "michael1",
+      "idProject": 4,
+      "nameProject": "projekt 3",
+      "aprproval": false,
+      "id": 4
+    },
+    {
+      "idPatient": 5,
+      "namePatient": "mif",
+      "idProject": 2,
+      "nameProject": "projekt 1",
+      "aprproval": false,
+      "id": 5
+    },
+    {
+      "idPatient": 2,
+      "namePatient": "asd3",
+      "idProject": 3,
+      "nameProject": "projekt 1",
+      "approval": false,
+      "id": 6
+    },
+    {
+      "idPatient": 4,
+      "namePatient": "ujkg",
+      "idProject": 3,
+      "nameProject": "projekt 1",
+      "approval": false,
+      "id": 7
+    },
+    {
+      "idPatient": 6,
+      "namePatient": "michael1",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 8
+    },
+    {
+      "idPatient": 7,
+      "namePatient": "michael1",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 9
+    },
+    {
+      "idPatient": 8,
+      "namePatient": "michael12",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 10
+    },
+    {
+      "idPatient": 4,
+      "namePatient": "ujkg",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 11
+    },
+    {
+      "idPatient": 8,
+      "namePatient": "michael12",
+      "idProject": 3,
+      "nameProject": "projekt 1",
+      "approval": false,
+      "id": 12
+    },
+    {
+      "idPatient": 4,
+      "namePatient": "ujkg",
+      "idProject": 6,
+      "nameProject": "projekt 5",
+      "approval": false,
+      "id": 13
+    }
+  ],
+  "obiekty": []
+}

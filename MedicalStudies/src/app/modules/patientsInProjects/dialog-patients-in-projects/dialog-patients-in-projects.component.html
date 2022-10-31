@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Add Patient to project:{{incomingData.name}}</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="patientForm">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Patient</mat-label>
+            <mat-select formControlName="namePatient" multiple>
+                <mat-option *ngFor="let patient of patientsList" [value]="patient">{{patient.id}} {{patient.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </form>
+
+</div>
+<div mat-dialog-end [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 6px;" mat-raised-button color="primary" mat-dialog-close
+        (click)="addPatientsInProjects()">Accept</button>
+</div>
