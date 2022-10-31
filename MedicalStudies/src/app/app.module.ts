@@ -26,6 +26,10 @@ import { DialogPatientsInProjectsComponent } from './modules/patientsInProjects/
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { StudyOrderComponent } from './modules/studyOrder/study-order/study-order.component';
+import { DialogStudyOrderComponent } from './modules/studyOrder/dialog-study-order/dialog-study-order.component';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -42,6 +46,8 @@ import { MatRadioModule } from '@angular/material/radio';
     DialogProjectComponent,
     PatientsInProjectsComponent,
     DialogPatientsInProjectsComponent,
+    StudyOrderComponent,
+    DialogStudyOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,10 @@ import { MatRadioModule } from '@angular/material/radio';
     MatListModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

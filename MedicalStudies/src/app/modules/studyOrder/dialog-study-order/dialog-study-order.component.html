@@ -1,0 +1,34 @@
+
+<h1 mat-dialog-title>Set study for patient</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="studyOrderForm">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Projects</mat-label>
+            <mat-select formControlName="nameProject" >
+                <mat-option *ngFor="let project of projectsList" [value]="project" (onSelectionChange)="selectProject(project)">{{project.id}} {{project.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label *ngIf="patientsInProjectsToSchow.length>0">Patient</mat-label>
+            <mat-label *ngIf="patientsInProjectsToSchow.length===0">No available patients</mat-label>
+            <mat-select formControlName="namePatient" >
+                <mat-option *ngFor="let patient of patientsInProjectsToSchow" [value]="patient">{{patient.idPatient}} {{patient.namePatient}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+         <mat-form-field appearance="fill">
+            <input matInput formControlName="dateControl" type="datetime-local" placeholder="start date"  min="{{today}}">
+          </mat-form-field>
+    </form>
+
+</div>
+<div mat-dialog-end [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 6px;" mat-raised-button color="primary" mat-dialog-close
+        (click)="addStudyOrder()">Accept</button>
+</div>
+

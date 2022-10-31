@@ -23,7 +23,7 @@ export class DialogPatientComponent implements OnInit {
   ngOnInit(): void {
     this.patientForm = this.formBilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', Validators.required, Validators.email]
     })
 
     if (this.editData) {
