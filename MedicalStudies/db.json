@@ -29,6 +29,11 @@
       "name": "michael12",
       "email": "admin@bee2code.com",
       "id": 8
+    },
+    {
+      "name": "Wiki",
+      "email": "wikil@bee2code.com",
+      "id": 9
     }
   ],
   "projects": [
@@ -64,7 +69,8 @@
       "idProject": 4,
       "nameProject": "projekt 3",
       "aprproval": false,
-      "id": 1
+      "id": 1,
+      "approval": true
     },
     {
       "idPatient": 6,
@@ -72,7 +78,8 @@
       "idProject": 4,
       "nameProject": "projekt 3",
       "aprproval": false,
-      "id": 3
+      "id": 3,
+      "approval": false
     },
     {
       "idPatient": 6,
@@ -80,7 +87,8 @@
       "idProject": 4,
       "nameProject": "projekt 3",
       "aprproval": false,
-      "id": 4
+      "id": 4,
+      "approval": true
     },
     {
       "idPatient": 5,
@@ -111,7 +119,7 @@
       "namePatient": "michael1",
       "idProject": 5,
       "nameProject": "projekt 4",
-      "approval": false,
+      "approval": true,
       "id": 8
     },
     {
@@ -127,16 +135,8 @@
       "namePatient": "michael12",
       "idProject": 5,
       "nameProject": "projekt 4",
-      "approval": false,
+      "approval": true,
       "id": 10
-    },
-    {
-      "idPatient": 4,
-      "namePatient": "ujkg",
-      "idProject": 5,
-      "nameProject": "projekt 4",
-      "approval": false,
-      "id": 11
     },
     {
       "idPatient": 8,
@@ -153,6 +153,30 @@
       "nameProject": "projekt 5",
       "approval": false,
       "id": 13
+    },
+    {
+      "idPatient": 9,
+      "namePatient": "Wiki",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 16
+    },
+    {
+      "idPatient": 4,
+      "namePatient": "ujkg",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 18
+    },
+    {
+      "idPatient": 5,
+      "namePatient": "mif",
+      "idProject": 5,
+      "nameProject": "projekt 4",
+      "approval": false,
+      "id": 19
     }
   ],
   "obiekty": []

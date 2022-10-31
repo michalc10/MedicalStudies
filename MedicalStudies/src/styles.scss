@@ -4,8 +4,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.space{margin: 5%;}
-
+.space{margin: 10%;}
+.spaceContent{
+  margin-top:5%;
+}
 a{
   color: black;
   text-decoration: none;

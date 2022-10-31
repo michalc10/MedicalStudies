@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Project } from '../../projects/project';
 import { ProjectService } from '../../projects/project.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,6 +8,8 @@ import { DialogPatientsInProjectsComponent } from '../dialog-patients-in-project
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { PatientsInProjectsService } from '../patients-in-projects.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-patients-in-projects',
@@ -18,11 +20,15 @@ export class PatientsInProjectsComponent implements OnInit {
 
   projects: Project[] = [];
   listData: PatientsInProjects[] = [];
-  chosenProject?: Project;
+  chosenProject!: Project;
+  wasChoseProject:boolean;
   patientsInProjects: PatientsInProjects[] = [];
 
   displayedColumns: string[] = ['id', 'namePatient', 'approval', 'action'];
   dataSource!: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private projectService: ProjectService,
@@ -30,6 +36,7 @@ export class PatientsInProjectsComponent implements OnInit {
     private patientsInProjectsService: PatientsInProjectsService,
     public dialog: MatDialog
   ) {
+    this.wasChoseProject=false
 
   }
 
@@ -73,14 +80,19 @@ export class PatientsInProjectsComponent implements OnInit {
 
   getList(id: any) {
     if (id) {
-      this.chosenProject = this.projects.find((val) => val.id == id);
+      this.chosenProject = this.projects.find((val) => val.id == id)!;
       this.updatDataSource()
     }
 
   }
   updatDataSource() {
     this.dataSource = new MatTableDataSource(this.patientsInProjects.filter((el: PatientsInProjects) => el.idProject === this.chosenProject!.id));
-    
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    if(this.chosenProject)
+    {
+      this.wasChoseProject=true;
+    }
 
   }
   openDialog() {
@@ -118,6 +130,17 @@ export class PatientsInProjectsComponent implements OnInit {
   }
 
   changeCheckbox(row:PatientsInProjects){
-    //ToDo!!!!
+    row.approval = !row.approval
+    this.patientsInProjectsService.putPatientsInProjects(row,row.id!)
+    .subscribe({
+      next:(val)=>{
+        this.getAllPatientsInProjects();
+      },
+      error:(err)=>{
+
+      }
+    })
   }
+
+  
 }
