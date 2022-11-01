@@ -34,10 +34,21 @@ export class PatientsComponent implements OnInit {
     this.dialog.open(DialogPatientComponent, {
       width: '30%'
     }).afterClosed().subscribe(val => {
-      if (val === 'save') {
+      if (val == 'save') {
         this.getAllPatients()
       }
     })
+  }
+
+editPatient(row: any) {
+    this.dialog.open(DialogPatientComponent, {
+      width: '30%',
+      data: row
+    }).afterClosed().subscribe(val => {
+      if (val == 'update') {
+        this.getAllPatients()
+      }
+    });
   }
 
   getAllPatients() {
@@ -54,16 +65,6 @@ export class PatientsComponent implements OnInit {
       })
   }
 
-  editPatient(row: any) {
-    this.dialog.open(DialogPatientComponent, {
-      width: '30%',
-      data: row
-    }).afterClosed().subscribe(val => {
-      if (val === 'update') {
-        this.getAllPatients()
-      }
-    });
-  }
 
   deletePatient(id: number) {
     console.log("hej")

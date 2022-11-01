@@ -38,7 +38,6 @@ export class DialogProjectComponent implements OnInit {
         this.projectService.postProject(this.projectForm.value)
           .subscribe({
             next: (res) => {
-              alert("Project added successfully");
               this.projectForm.reset();
               this.dialogRef.close('save');
             },
@@ -52,7 +51,6 @@ export class DialogProjectComponent implements OnInit {
         this.projectService.putProject(this.projectForm.value, this.editData.id)
         .subscribe({
           next:(res)=>{
-            alert("Project updated Successfully");
             this.projectForm.reset();
             this.dialogRef.close('update');
           },

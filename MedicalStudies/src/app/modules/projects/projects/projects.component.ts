@@ -34,10 +34,24 @@ export class ProjectsComponent implements OnInit {
     this.dialog.open(DialogProjectComponent, {
       width: '30%'
     }).afterClosed().subscribe(val => {
-      if (val === 'save') {
-        this.getAllProjects()
+      if (val == 'save') {
+        this.getAllProjects();
+        alert("Project added successfully");
       }
     })
+  }
+  
+  editProject(row: any) {
+    this.dialog.open(DialogProjectComponent, {
+      width: '30%',
+      data: row
+    }).afterClosed().subscribe(val => {
+      console.log(val)
+      if (val == 'update') {
+        this.getAllProjects();
+        alert("Project updated Successfully");
+      }
+    });
   }
 
   getAllProjects() {
@@ -53,17 +67,7 @@ export class ProjectsComponent implements OnInit {
         }
       })
   }
-
-  editProject(row: any) {
-    this.dialog.open(DialogProjectComponent, {
-      width: '30%',
-      data: row
-    }).afterClosed().subscribe(val => {
-      if (val === 'update') {
-        this.getAllProjects()
-      }
-    });
-  }
+ 
 
   deleteProject(id: number) {
     console.log("hej")
