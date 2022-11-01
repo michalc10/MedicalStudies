@@ -11,7 +11,7 @@ import { Inject } from '@angular/core'
 })
 export class DialogPatientComponent implements OnInit {
 
-  patientForm!: FormGroup
+  patientForm!: FormGroup;
 
   constructor(
     private formBilder: FormBuilder,

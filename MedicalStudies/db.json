@@ -266,13 +266,14 @@
   ],
   "studyOrder": [
     {
-      "dateOfStudy": "2022-10-03T23:44",
-      "dateOfAssignmentOfStudy": "2022-10-31T22:44:11.441Z",
+      "id": 4,
+      "dateOfStudy": "2022-10-17T15:28",
+      "dateOfAssignmentOfStudy": "2022-10-01T19:24:03.284Z",
       "idProject": 13,
       "nameProject": "podryw",
       "idPatient": 14,
       "namePatient": "Krzysztof Mlek",
-      "id": 4
+      "description": "Nope"
     },
     {
       "id": 5,

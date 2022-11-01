@@ -1,1 +1,18 @@
-<p>dialog-study-result works!</p>
+<h1 mat-dialog-title>Add Patient</h1>
+<div mat-dialog-content>
+    <p>Project: {{incomingData.nameProject}}</p>
+    <p>Patient: {{incomingData.namePatient}}</p>
+    <form [formGroup]="studyForm">
+    <mat-form-field appearance="outline">
+        <mat-label>description</mat-label>
+        <textarea  formControlName="description" matInput placeholder="description"></textarea>
+    </mat-form-field>
+    
+
+    </form>
+
+</div>
+<div mat-dialog-end [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close >Close</button>
+    <button style="margin-left: 6px;" mat-raised-button color="primary" mat-dialog-close (click)="changeStudy()">Accept</button>
+</div>

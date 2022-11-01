@@ -93,10 +93,10 @@ export class DialogStudyOrderComponent implements OnInit {
           id: this.incomingData.id,
           dateOfStudy: this.studyOrderForm.value.dateControl,
           dateOfAssignmentOfStudy: new Date(),
-          idProject: this.studyOrderForm.value.nameProject.id,
-          nameProject: this.studyOrderForm.value.nameProject.name,
-          idPatient: this.studyOrderForm.value.namePatient.idPatient,
-          namePatient: this.studyOrderForm.value.namePatient.namePatient,
+          idProject: this.studyOrderForm.value.idProject,
+          nameProject: this.studyOrderForm.value.nameProject,
+          idPatient: this.studyOrderForm.value.idPatient,
+          namePatient: this.studyOrderForm.value.namePatient,
         }
         this.studyOrderService.putStudyOrder(value, this.incomingData.id)
           .subscribe({
@@ -115,10 +115,10 @@ export class DialogStudyOrderComponent implements OnInit {
         const value: StudyOrder = {
           dateOfStudy: this.studyOrderForm.value.dateControl,
           dateOfAssignmentOfStudy: new Date(),
-          idProject: this.studyOrderForm.value.nameProject.id,
-          nameProject: this.studyOrderForm.value.nameProject.name,
-          idPatient: this.studyOrderForm.value.namePatient.idPatient,
-          namePatient: this.studyOrderForm.value.namePatient.namePatient,
+          idProject: this.studyOrderForm.value.idProject,
+          nameProject: this.studyOrderForm.value.nameProject,
+          idPatient: this.studyOrderForm.value.idPatient,
+          namePatient: this.studyOrderForm.value.namePatient,
         }
         this.studyOrderService.postStudyOrder(value)
           .subscribe({
