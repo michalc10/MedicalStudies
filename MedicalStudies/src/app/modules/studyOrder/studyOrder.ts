@@ -6,4 +6,5 @@ export interface StudyOrder{
     nameProject:string,
     idPatient:number,
     namePatient:string,
+    description?:string
 }

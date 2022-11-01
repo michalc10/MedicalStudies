@@ -30,6 +30,8 @@ import { StudyOrderComponent } from './modules/studyOrder/study-order/study-orde
 import { DialogStudyOrderComponent } from './modules/studyOrder/dialog-study-order/dialog-study-order.component';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { StudyResultComponent } from './modules/studyOrder/study-result/study-result.component';
+import { DialogStudyResultComponent } from './modules/studyOrder/dialog-study-result/dialog-study-result.component';
 
 
 
@@ -48,6 +50,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     DialogPatientsInProjectsComponent,
     StudyOrderComponent,
     DialogStudyOrderComponent,
+    StudyResultComponent,
+    DialogStudyResultComponent,
   ],
   imports: [
     BrowserModule,

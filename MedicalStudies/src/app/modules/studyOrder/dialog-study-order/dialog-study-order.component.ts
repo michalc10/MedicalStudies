@@ -131,7 +131,7 @@ export class DialogStudyOrderComponent implements OnInit {
             error: (err) => {
 
             }
-          })
+          });
       }
     }
   }

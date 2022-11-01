@@ -1,22 +1,21 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { DialogStudyOrderComponent } from '../dialog-study-order/dialog-study-order.component';
+import { DialogStudyResultComponent } from '../dialog-study-result/dialog-study-result.component';
 import { StudyOrderService } from '../study-order.service';
 import { StudyOrder } from '../studyOrder';
 
 @Component({
-  selector: 'app-study-order',
-  templateUrl: './study-order.component.html',
-  styleUrls: ['./study-order.component.scss']
+  selector: 'app-study-result',
+  templateUrl: './study-result.component.html',
+  styleUrls: ['./study-result.component.scss']
 })
-export class StudyOrderComponent implements OnInit {
+export class StudyResultComponent implements OnInit {
 
-  
-  displayedColumns: string[] = ['id', 'dateOfStudy','dateOfAssignmentOfStudy','nameProject', 'namePatient', 'action'];
+   
+  displayedColumns: string[] = ['id', 'dateOfStudy','nameProject', 'namePatient','description', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -34,7 +33,7 @@ export class StudyOrderComponent implements OnInit {
     this.studyOrderService.getStudyOrder()
     .subscribe({
       next:(studies)=>{
-        studies= studies.filter((el:StudyOrder)=> {return new Date(el.dateOfStudy) > new Date()})
+        studies = studies.filter((el:StudyOrder)=> {return new Date(el.dateOfStudy) < new Date()})
         this.dataSource = new MatTableDataSource(studies);
         this.dataSource.paginator=  this.paginator ;
         this.dataSource.sort = this.sort;
@@ -44,20 +43,10 @@ export class StudyOrderComponent implements OnInit {
       }
     })
   }
-  openDialog() {
-    this.dialog.open(DialogStudyOrderComponent, {
-      width: '30%',
-      // data: this.chosenProject
-    }).afterClosed().subscribe(val => {
-      if (val == 'save') {
-        this.getAllStudyOrders()
-      }
-    });
-  }
 
   editValueDialog(row: any) {
     console.log("row: ",row)
-    this.dialog.open(DialogStudyOrderComponent, {
+    this.dialog.open(DialogStudyResultComponent, {
       width: '30%',
       data: row
     }).afterClosed().subscribe(val => {
@@ -79,7 +68,6 @@ export class StudyOrderComponent implements OnInit {
       }
     })
   }
-
 
 
   applyFilter(event: Event) {
