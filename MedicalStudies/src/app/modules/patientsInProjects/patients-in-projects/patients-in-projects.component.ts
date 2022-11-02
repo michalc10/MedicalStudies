@@ -86,7 +86,7 @@ export class PatientsInProjectsComponent implements OnInit {
 
   }
   updatDataSource() {
-    this.dataSource = new MatTableDataSource(this.patientsInProjects.filter((el: PatientsInProjects) => el.idProject === this.chosenProject!.id));
+    this.dataSource = new MatTableDataSource(this.patientsInProjects.filter((el: PatientsInProjects) => el.idProject == this.chosenProject!.id));
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     if(this.chosenProject)

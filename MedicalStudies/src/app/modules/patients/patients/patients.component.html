@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class="conteiner">
-<button mat-raised-button color="primary" (click)="openDialog()">Add</button>
+    <div class="headers">
+        <h1><b>Patients</b></h1>
+        <button mat-raised-button color="primary" (click)="openDialog()">Add</button>
+    </div>
 
 
     <mat-form-field appearance="standard">
@@ -31,10 +34,14 @@
             </ng-container>
 
             <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef >  </th>
-                <td mat-cell *matCellDef="let row"> 
-                    <button mat-icon-button color="primary" (click)="editPatient(row)"><mat-icon>edit</mat-icon></button>  
-                    <button mat-icon-button color="warn" (click)="deletePatient(row.id)"><mat-icon>delete</mat-icon></button>    
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-icon-button color="primary" (click)="editPatient(row)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="deletePatient(row.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </td>
             </ng-container>
 

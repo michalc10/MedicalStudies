@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
 <div class="conteiner">
-    <button (click)="openDialog()">Add Patient to this project</button>
+
+    <div class="headers">
+        <h1><b>Study Orders</b></h1>
+        <button mat-raised-button color="primary" (click)="openDialog()">Add visit</button>
+    </div>
     <mat-form-field appearance="standard">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="@gmail" #input>
@@ -15,22 +19,22 @@
             </ng-container>
 
             <ng-container matColumnDef="dateOfStudy">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> date of Study </th>
                 <td mat-cell *matCellDef="let row"> {{row.dateOfStudy| date :'short'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="dateOfAssignmentOfStudy">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> date of assignment of Study </th>
                 <td mat-cell *matCellDef="let row"> {{ row.dateOfAssignmentOfStudy | date :'short'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="nameProject">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Project </th>
                 <td mat-cell *matCellDef="let row"> {{row.nameProject }} </td>
             </ng-container>
 
             <ng-container matColumnDef="namePatient">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient </th>
                 <td mat-cell *matCellDef="let row"> {{row.namePatient}} </td>
             </ng-container>
 

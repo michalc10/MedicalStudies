@@ -15,69 +15,67 @@ import { StudyOrder } from '../studyOrder';
 })
 export class StudyOrderComponent implements OnInit {
 
-  
-  displayedColumns: string[] = ['id', 'dateOfStudy','dateOfAssignmentOfStudy','nameProject', 'namePatient', 'action'];
+
+  displayedColumns: string[] = ['id', 'dateOfStudy', 'dateOfAssignmentOfStudy', 'nameProject', 'namePatient', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  
+
   constructor(
-    private studyOrderService:StudyOrderService,
-    public dialog: MatDialog) {}
+    private studyOrderService: StudyOrderService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllStudyOrders()
   }
 
-  getAllStudyOrders(){
+  getAllStudyOrders() {
     this.studyOrderService.getStudyOrder()
-    .subscribe({
-      next:(studies)=>{
-        studies= studies.filter((el:StudyOrder)=> {return new Date(el.dateOfStudy) > new Date()})
-        this.dataSource = new MatTableDataSource(studies);
-        this.dataSource.paginator=  this.paginator ;
-        this.dataSource.sort = this.sort;
-      },
-      error:(err)=>{
-        console.log(err);
-      }
-    })
+      .subscribe({
+        next: (studies) => {
+          studies = studies.filter((el: StudyOrder) => { return new Date(el.dateOfStudy) > new Date() })
+          this.dataSource = new MatTableDataSource(studies);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
   }
   openDialog() {
     this.dialog.open(DialogStudyOrderComponent, {
       width: '30%',
       // data: this.chosenProject
     }).afterClosed().subscribe(val => {
-      if (val == 'save') {
-        this.getAllStudyOrders()
-      }
+      
+      this.getAllStudyOrders()
     });
   }
 
   editValueDialog(row: any) {
-    console.log("row: ",row)
+    console.log("row: ", row)
     this.dialog.open(DialogStudyOrderComponent, {
       width: '30%',
       data: row
     }).afterClosed().subscribe(val => {
-      if (val == 'update') {
-        this.getAllStudyOrders()
-      }
+
+      this.getAllStudyOrders()
     });
   }
 
-  deleteRow(id:number){
+  deleteRow(id: number) {
     this.studyOrderService.deleteStudyOrder(id)
-    .subscribe({
-      next:(val)=>{
-        this.getAllStudyOrders()
+      .subscribe({
+        next: (val) => {
+          this.getAllStudyOrders()
 
-      },
-      error:(err)=>{
-        
-      }
-    })
+        },
+        error: (err) => {
+
+        }
+      })
   }
 
 

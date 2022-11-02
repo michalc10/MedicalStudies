@@ -13,7 +13,7 @@
         <div class="table">
             <h1 style="font-weight:bold">{{wasChoseProject?chosenProject.name:"Chose Project"}}</h1>
             <div class="project" *ngIf="wasChoseProject">
-                <button (click)="openDialog()">Add Patient to this project</button>
+                <button mat-raised-button color="primary" (click)="openDialog()">Add Patient to this project</button>
 
                 <mat-form-field appearance="standard">
                     <mat-label>Filter</mat-label>
