@@ -3,4 +3,6 @@ export interface projectCount{
     nameProject:string;
     allPatients:number;
     permitPatients:number;
+    beforeStudy:number;
+    afterStudy:number
 }

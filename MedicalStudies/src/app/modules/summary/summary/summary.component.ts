@@ -94,12 +94,20 @@ export class SummaryComponent implements OnInit {
   createCharts() {
 
     this.projectList.forEach((el) => {
+
       const tab = this.patientsINProjectsList.filter(((val) => val.idProject == el.id))
+
+      const before:StudyOrder[] = this.studyList.filter((val) => new Date(val.dateOfStudy) >= new Date())
+      const after = this.studyList.filter((val) => new Date(val.dateOfStudy) < new Date())
+      const beforeTab = before.filter((val:StudyOrder) => val.idProject == el.id)
+      const afterTab = after.filter((val:StudyOrder) => val.idProject == el.id)
       const val: projectCount = {
         idProject: el.id,
         nameProject: el.name.toString(),
         allPatients: tab.length,
         permitPatients: tab.filter((val) => val.approval).length,
+        beforeStudy: beforeTab.length,
+        afterStudy:afterTab.length
       }
       this.sumaryPatientsInProjects.push(val);
     });
@@ -114,13 +122,13 @@ export class SummaryComponent implements OnInit {
           {
             label: "all Patients",
             data: this.sumaryPatientsInProjects.map((el) => el.allPatients),
-            
+
             backgroundColor: 'blue'
           },
           {
             label: "permit Patients",
-            data: this.sumaryPatientsInProjects.map((el) => el.permitPatients), 
-            
+            data: this.sumaryPatientsInProjects.map((el) => el.permitPatients),
+
             backgroundColor: 'limegreen'
           }
         ]
@@ -136,19 +144,18 @@ export class SummaryComponent implements OnInit {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13',
-          '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17',],
+        labels: this.sumaryPatientsInProjects.map((el) => el.nameProject),
         datasets: [
           {
-            label: "Sales",
-            data: ['467', '576', '572', '79', '92',
-              '574', '573', '576'],
+            label: "before Study",
+            data: this.sumaryPatientsInProjects.map((el) => el.beforeStudy),
+
             backgroundColor: 'blue'
           },
           {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-              '0.00', '538', '541'],
+            label: "after Study",
+            data: this.sumaryPatientsInProjects.map((el) => el.afterStudy),
+
             backgroundColor: 'limegreen'
           }
         ]
@@ -159,31 +166,6 @@ export class SummaryComponent implements OnInit {
 
     });
 
-    const chart3 = new Chart("MyChart3", {
-      type: 'bar', //this denotes tha type of chart
-
-      data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13',
-          '2022-05-14', '2022-05-15', '2022-05-16', '2022-05-17',],
-        datasets: [
-          {
-            label: "Sales",
-            data: ['467', '576', '572', '79', '92',
-              '574', '573', '576'],
-            backgroundColor: 'blue'
-          },
-          {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-              '0.00', '538', '541'],
-            backgroundColor: 'limegreen'
-          }
-        ]
-      },
-      options: {
-        aspectRatio: 2.5
-      }
-
-    });
+    
   }
 }
