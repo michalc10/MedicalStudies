@@ -32,6 +32,7 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-mat
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { StudyResultComponent } from './modules/studyOrder/study-result/study-result.component';
 import { DialogStudyResultComponent } from './modules/studyOrder/dialog-study-result/dialog-study-result.component';
+import { SummaryComponent } from './modules/summary/summary/summary.component';
 
 
 
@@ -52,6 +53,7 @@ import { DialogStudyResultComponent } from './modules/studyOrder/dialog-study-re
     DialogStudyOrderComponent,
     StudyResultComponent,
     DialogStudyResultComponent,
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

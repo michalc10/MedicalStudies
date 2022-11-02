@@ -5,6 +5,7 @@ import { PatientsInProjectsComponent } from './modules/patientsInProjects/patien
 import { ProjectsComponent } from './modules/projects/projects/projects.component';
 import { StudyOrderComponent } from './modules/studyOrder/study-order/study-order.component';
 import { StudyResultComponent } from './modules/studyOrder/study-result/study-result.component';
+import { SummaryComponent } from './modules/summary/summary/summary.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/patients', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'patientsInProjects', component: PatientsInProjectsComponent },
   { path: 'patientsInProjects/:id', component: PatientsInProjectsComponent },
   { path: 'studyOrder', component: StudyOrderComponent },
-  { path: 'studyResult', component: StudyResultComponent }
+  { path: 'studyResult', component: StudyResultComponent },
+  { path: 'Summary', component: SummaryComponent }
 ];
 
 @NgModule({

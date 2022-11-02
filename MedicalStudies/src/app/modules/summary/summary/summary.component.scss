@@ -1,0 +1,16 @@
+.conteiner{
+    max-width: 1200px;
+    margin:0 auto;
+    margin-top: 20px;
+}
+.displayFlex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.sizeCanvas{
+    height: auto;
+    width: auto;
+}
