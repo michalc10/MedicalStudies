@@ -1,38 +1,44 @@
 .disposition {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:20px
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px
 }
-.spaceContent{
-    max-width: 1200px;
-    margin:0 auto;
-    margin-top: 20px;
-  }
+
+.spaceContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 
 
+.table-size {
+  width: 80%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.conteiner {
+  max-width: 1200px;
+  margin: 0 auto
+}
+
+td,
+th {
+  width: 33%;
+}
+
+.user-approval {
+  background-color: rgb(0, 189, 0)
+}
+
+.user-unapproval {
+  background-color: rgb(255, 43, 43)
+}
 table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  
-  .conteiner{
-    max-width: 1200px;
-    margin:0 auto
-  }
-  
-  td, th {
-    width: 25%;
-  }
-
-  .user-approval{
-    background-color: rgb(0, 189, 0)
-  }
-  .user-unapproval{
-    background-color: rgb(255, 43, 43)
-  }
+  width: 100%;
+}

@@ -16,7 +16,7 @@ import { StudyOrder } from '../studyOrder';
 export class StudyOrderComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['id', 'dateOfStudy', 'dateOfAssignmentOfStudy', 'nameProject', 'namePatient', 'action'];
+  displayedColumns: string[] = ['id', 'dateOfAssignmentOfStudy', 'dateOfStudy', 'nameProject', 'namePatient', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
