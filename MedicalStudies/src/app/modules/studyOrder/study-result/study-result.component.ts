@@ -39,13 +39,12 @@ export class StudyResultComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error:(err)=>{
-        console.log(err);
+        console.log("Error while geting study order: ",err)
       }
     })
   }
 
   editValueDialog(row: any) {
-    console.log("row: ",row)
     this.dialog.open(DialogStudyResultComponent, {
       width: '30%',
       data: row
@@ -65,6 +64,7 @@ export class StudyResultComponent implements OnInit {
       },
       error:(err)=>{
         
+        console.log("Error while deleting study order: ",err)
       }
     })
   }

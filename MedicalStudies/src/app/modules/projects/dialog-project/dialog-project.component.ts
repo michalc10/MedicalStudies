@@ -42,8 +42,8 @@ export class DialogProjectComponent implements OnInit {
               this.dialogRef.close('save');
             },
 
-            error: () => {
-              alert("Error while adding project");
+            error: (err) => {
+              console.log("Error while adding projects: ",err);
             }
           })
       }
@@ -55,7 +55,7 @@ export class DialogProjectComponent implements OnInit {
             this.dialogRef.close('update');
           },
           error:(err)=>{
-            alert("Error while updating project");
+            console.log("Error while updating project: ",err);
           }
         }
           

@@ -21,7 +21,7 @@ export class PatientsInProjectsComponent implements OnInit {
   projects: Project[] = [];
   listData: PatientsInProjects[] = [];
   chosenProject!: Project;
-  wasChoseProject:boolean;
+  wasChoseProject: boolean;
   patientsInProjects: PatientsInProjects[] = [];
 
   displayedColumns: string[] = ['id', 'namePatient', 'approval', 'action'];
@@ -36,7 +36,7 @@ export class PatientsInProjectsComponent implements OnInit {
     private patientsInProjectsService: PatientsInProjectsService,
     public dialog: MatDialog
   ) {
-    this.wasChoseProject=false
+    this.wasChoseProject = false
 
   }
 
@@ -56,6 +56,7 @@ export class PatientsInProjectsComponent implements OnInit {
           this.getAllPatientsInProjects();
         },
         error: (err) => {
+          console.log("Error while gettings projects: ", err);
         }
       });
   }
@@ -67,7 +68,7 @@ export class PatientsInProjectsComponent implements OnInit {
         next: (patientsInProjects) => {
           this.patientsInProjects = patientsInProjects;
           if (this.chosenProject) {
-             this.getList(this.chosenProject.id);
+            this.getList(this.chosenProject.id);
 
           }
 
@@ -81,17 +82,21 @@ export class PatientsInProjectsComponent implements OnInit {
   getList(id: any) {
     if (id) {
       this.chosenProject = this.projects.find((val) => val.id == id)!;
-      this.updatDataSource()
+      if (id != 0) {
+        this.updatDataSource()
+
+      }
     }
 
   }
   updatDataSource() {
-    this.dataSource = new MatTableDataSource(this.patientsInProjects.filter((el: PatientsInProjects) => el.idProject == this.chosenProject!.id));
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    if(this.chosenProject)
-    {
-      this.wasChoseProject=true;
+
+    if (this.chosenProject) {
+      const tab = this.patientsInProjects.filter((el: PatientsInProjects) => el.idProject == this.chosenProject!.id)
+      this.dataSource = new MatTableDataSource(tab);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.wasChoseProject = true;
     }
 
   }
@@ -116,7 +121,6 @@ export class PatientsInProjectsComponent implements OnInit {
   }
 
   deletePatientInProject(id: number) {
-    console.log(id);
     this.patientsInProjectsService.deletePatientsInProjects(id)
       .subscribe({
         next: (val) => {
@@ -124,23 +128,25 @@ export class PatientsInProjectsComponent implements OnInit {
 
         },
         error: (err) => {
+          console.log("Error while deleting patient in project: ", err);
 
         }
       });
   }
 
-  changeCheckbox(row:PatientsInProjects){
+  changeCheckbox(row: PatientsInProjects) {
     row.approval = !row.approval
-    this.patientsInProjectsService.putPatientsInProjects(row,row.id!)
-    .subscribe({
-      next:(val)=>{
-        this.getAllPatientsInProjects();
-      },
-      error:(err)=>{
+    this.patientsInProjectsService.putPatientsInProjects(row, row.id!)
+      .subscribe({
+        next: (val) => {
+          this.getAllPatientsInProjects();
+        },
+        error: (err) => {
+          console.log("Error while changing satus of patient: ", err);
 
-      }
-    })
+        }
+      })
   }
 
-  
+
 }

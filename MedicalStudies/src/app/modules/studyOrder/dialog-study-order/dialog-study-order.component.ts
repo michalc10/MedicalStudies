@@ -109,7 +109,7 @@ export class DialogStudyOrderComponent implements OnInit {
 
             },
             error: (err) => {
-              console.log(err)
+              console.log("Error while updating study order: ",err)
             }
           })
       }
@@ -133,6 +133,7 @@ export class DialogStudyOrderComponent implements OnInit {
 
             },
             error: (err) => {
+              console.log("Error while adding study order: ",err)
 
             }
           });

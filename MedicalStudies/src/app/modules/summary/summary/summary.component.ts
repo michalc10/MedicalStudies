@@ -46,7 +46,7 @@ export class SummaryComponent implements OnInit {
           this.getAllProjects();
         },
         error: (err) => {
-          // console.log(this.dataSource);
+          console.log("Error while getting patients: ",err)
         }
       })
   }
@@ -59,7 +59,7 @@ export class SummaryComponent implements OnInit {
           this.getAllPatientsInProjects()
         },
         error: (err) => {
-          // console.log(this.dataSource);
+          console.log("Error while getting projects: ",err)
         }
       })
   }
@@ -73,7 +73,7 @@ export class SummaryComponent implements OnInit {
           this.getAllStudyOrders();
         },
         error: (err) => {
-          // console.log(this.dataSource);
+          console.log("Error while getting patients in projects: ",err)
         }
       })
   }
@@ -86,7 +86,7 @@ export class SummaryComponent implements OnInit {
           this.createCharts()
         },
         error: (err) => {
-          console.log(err);
+          console.log("Error while getting study orders: ",err)
         }
       })
   }
@@ -112,7 +112,6 @@ export class SummaryComponent implements OnInit {
       this.sumaryPatientsInProjects.push(val);
     });
 
-    console.log(this.sumaryPatientsInProjects)
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
 

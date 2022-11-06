@@ -45,9 +45,11 @@ editPatient(row: any) {
       width: '30%',
       data: row
     }).afterClosed().subscribe(val => {
-      if (val == 'update') {
-        this.getAllPatients()
-      }
+      // if (val == 'update') {
+      //   this.getAllPatients()
+      // }
+      this.getAllPatients();
+      
     });
   }
 
@@ -55,19 +57,18 @@ editPatient(row: any) {
     this.patientService.getPatients()
       .subscribe({
         next: (res) => {
-          this.dataSource = new MatTableDataSource(res)
+          this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         },
         error: (err) => {
-          // console.log(this.dataSource);
+          console.log("Error while geting patients: ",err);
         }
       })
   }
 
 
   deletePatient(id: number) {
-    console.log("hej")
     this.patientService.deletePatient(id)
       .subscribe({
         next: (res) => {
@@ -75,7 +76,7 @@ editPatient(row: any) {
           alert("Patient was delete");
         },
         error: (err) => {
-          alert("Error while deleting patient");
+          console.log("Error while deleting patient: ",err);
         }
       })
 

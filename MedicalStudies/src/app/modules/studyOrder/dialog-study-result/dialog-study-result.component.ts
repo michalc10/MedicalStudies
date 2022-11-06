@@ -19,15 +19,18 @@ export class DialogStudyResultComponent implements OnInit {
     private studyService: StudyOrderService,
     @Inject(MAT_DIALOG_DATA) public incomingData: any,
     private dialogRef: MatDialogRef<DialogPatientComponent>
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.studyForm = this.formBilder.group({
       description: ['', Validators.required],
     })
+    if (this.incomingData) {
+      this.studyForm.controls['description'].setValue(this.incomingData.description);
+    }
 
   }
-  changeStudy(){
+  changeStudy() {
     if (this.studyForm.valid) {
       const value: StudyOrder = {
         id: this.incomingData.id,
@@ -48,10 +51,10 @@ export class DialogStudyResultComponent implements OnInit {
 
           },
           error: (err) => {
-            console.log(err)
+            console.log("Error while changing study result: ", err)
           }
         })
-    
+
     }
   }
 }

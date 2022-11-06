@@ -63,14 +63,13 @@ export class ProjectsComponent implements OnInit {
           this.dataSource.sort = this.sort;
         },
         error: (err) => {
-          // console.log(this.dataSource);
+          console.log("Error while geting projects: ",err);
         }
       })
   }
  
 
   deleteProject(id: number) {
-    console.log("hej")
     this.projectService.deleteProject(id)
       .subscribe({
         next: (res) => {
@@ -78,7 +77,7 @@ export class ProjectsComponent implements OnInit {
           alert("Project was delete");
         },
         error: (err) => {
-          alert("Error while deleting project");
+          console.log("Error while deleting project: ",err);
         }
       })
 

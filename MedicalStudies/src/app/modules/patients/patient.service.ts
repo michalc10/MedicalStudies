@@ -26,17 +26,17 @@ export class PatientService {
   }
 
   putPatient(patient: Patient, id: number) {
-    this.changePatientsInProjects(patient)
+    // this.changePatientsInProjects(patient)
 
     return this.http.put<any>("http://localhost:3000/patients/" + id, patient);
   }
 
   deletePatient(id: number) {
-    if (this.patientsInProjects.length == 0) {
-      this.deletePatientsInProjects(id)
-    }
-    else {
-    }
+    // if (this.patientsInProjects.length == 0) {
+    //   this.deletePatientsInProjects(id)
+    // }
+    // else {
+    // }
     return this.http.delete<any>("http://localhost:3000/patients/" + id);
   }
 

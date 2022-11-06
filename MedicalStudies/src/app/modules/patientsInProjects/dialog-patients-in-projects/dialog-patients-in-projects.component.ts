@@ -56,6 +56,7 @@ export class DialogPatientsInProjectsComponent implements OnInit {
         },
         error: (err) => {
           // console.log(this.dataSource);
+          console.log("Error while geting patients in projects: ", err);
         }
       })
   }
@@ -74,10 +75,13 @@ export class DialogPatientsInProjectsComponent implements OnInit {
         this.patientsInProjectsService.postPatientsInProjects(value)
           .subscribe({
             next: (res) => {
+              alert("Sucessfull while adding patient to project");
+              this.patientForm.reset();
+              this.dialogRef.close('save');
             },
 
-            error: () => {
-              alert("Error while adding patient");
+            error: (err) => {
+              console.log("Error while adding patient: ",err);
             }
           })
 
@@ -85,8 +89,6 @@ export class DialogPatientsInProjectsComponent implements OnInit {
 
 
     }
-    this.patientForm.reset();
-    this.dialogRef.close('save');
   }
 
 

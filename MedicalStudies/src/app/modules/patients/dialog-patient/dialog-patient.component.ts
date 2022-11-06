@@ -40,11 +40,11 @@ export class DialogPatientComponent implements OnInit {
             next: (res) => {
               alert("Patient added successfully");
               this.patientForm.reset();
-              this.dialogRef.close('save');
+              this.dialogRef.close( this.patientForm.value);
             },
 
-            error: () => {
-              alert("Error while adding patient");
+            error: (err) => {
+              console.log("Error while adding patient: ",err);
             }
           })
       }
@@ -57,7 +57,7 @@ export class DialogPatientComponent implements OnInit {
             this.dialogRef.close('update');
           },
           error:(err)=>{
-            alert("Error while updating patient");
+            console.log("Error while updating patient", err);
           }
         }
           

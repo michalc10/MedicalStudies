@@ -114,14 +114,6 @@
   ],
   "patientsInProjects": [
     {
-      "idPatient": 9,
-      "namePatient": "Wiki",
-      "idProject": 8,
-      "nameProject": "pojekt Zenifero",
-      "approval": false,
-      "id": 1
-    },
-    {
       "idPatient": 11,
       "namePatient": "Katarzyna",
       "idProject": 8,
@@ -408,6 +400,14 @@
       "nameProject": "podryw",
       "approval": true,
       "id": 37
+    },
+    {
+      "idPatient": 12,
+      "namePatient": "Marcin Adamski",
+      "idProject": 6,
+      "nameProject": "globus",
+      "approval": false,
+      "id": 38
     }
   ],
   "studyOrder": [
@@ -423,12 +423,13 @@
     },
     {
       "id": 5,
-      "dateOfStudy": "2022-11-17T15:28",
-      "dateOfAssignmentOfStudy": "2022-11-01T15:16:28.109Z",
+      "dateOfStudy": "2022-11-18T15:28",
+      "dateOfAssignmentOfStudy": "2022-11-06T23:34:57.456Z",
       "idProject": 11,
       "nameProject": "komórka",
       "idPatient": 16,
-      "namePatient": "Majk Wazowski"
+      "namePatient": "Majk Wazowski",
+      "description": "Note"
     },
     {
       "id": 12,
@@ -457,16 +458,17 @@
       "nameProject": "podryw",
       "idPatient": 16,
       "namePatient": "Majk Wazowski",
-      "description": "Note 3\nNote 4\nNote 5\nNote 6"
+      "description": "Note 3\nNote 4\nNote 5\nNote 6\nNote 7\nNote 3\nNote 4"
     },
     {
+      "id": 18,
       "dateOfStudy": "2022-11-03T08:08",
       "dateOfAssignmentOfStudy": "2022-11-02T17:08:44.295Z",
       "idProject": 6,
       "nameProject": "globus",
       "idPatient": 11,
       "namePatient": "Katarzyna",
-      "id": 18
+      "description": "Next time will be beter"
     },
     {
       "dateOfStudy": "2022-11-20T18:09",
@@ -542,6 +544,16 @@
       "namePatient": "Majk Wazowski",
       "description": "Note",
       "id": 26
+    },
+    {
+      "dateOfStudy": "2022-11-08T08:34",
+      "dateOfAssignmentOfStudy": "2022-11-06T23:34:39.520Z",
+      "idProject": 8,
+      "nameProject": "pojekt Zenifero",
+      "idPatient": 10,
+      "namePatient": "Zofia Nowak",
+      "description": "Note",
+      "id": 27
     }
   ],
   "obiekty": []
