@@ -6,23 +6,23 @@ import { StudyOrder } from './studyOrder';
   providedIn: 'root'
 })
 export class StudyOrderService {
-
+  private api ="http://localhost:3000/studyOrder/";
   constructor(private http: HttpClient) {
   }
 
   postStudyOrder(studyOrder: StudyOrder) {
-    return this.http.post<any>("http://localhost:3000/studyOrder/", studyOrder);
+    return this.http.post<any>(this.api, studyOrder);
   }
 
   getStudyOrder() {
-    return this.http.get<any>("http://localhost:3000/studyOrder/");
+    return this.http.get<any>(this.api);
   }
 
   putStudyOrder(studyOrder: StudyOrder,id:number) {
-    return this.http.put<any>("http://localhost:3000/studyOrder/" + id, studyOrder);
+    return this.http.put<any>(this.api + id, studyOrder);
   }
 
   deleteStudyOrder(id:number){
-    return this.http.delete<any>("http://localhost:3000/studyOrder/" + id);
+    return this.http.delete<any>(this.api + id);
   }
 }

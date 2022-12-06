@@ -10,60 +10,29 @@ import { PatientsInProjects } from '../patientsInProjects/patientsInProjects';
 
 export class PatientService {
 
-  private patientsInProjects: PatientsInProjects[] = []
+  private api = "http://localhost:3000/patients/";
   constructor(
-    private http: HttpClient,
-    private patientsInProjectsService: PatientsInProjectsService,
+    private http: HttpClient
   ) {
   }
 
   postPatient(patient: Patient) {
-    return this.http.post<any>("http://localhost:3000/patients/", patient);
+    return this.http.post<any>(this.api, patient);
   }
 
   getPatients() {
-    return this.http.get<any>("http://localhost:3000/patients/");
+    return this.http.get<any>(this.api);
   }
 
   putPatient(patient: Patient, id: number) {
-    // this.changePatientsInProjects(patient)
-
-    return this.http.put<any>("http://localhost:3000/patients/" + id, patient);
+    return this.http.put<any>(this.api + id, patient);
   }
 
   deletePatient(id: number) {
-    // if (this.patientsInProjects.length == 0) {
-    //   this.deletePatientsInProjects(id)
-    // }
-    // else {
-    // }
-    return this.http.delete<any>("http://localhost:3000/patients/" + id);
+    return this.http.delete<any>(this.api + id);
   }
 
 
 
-  changePatientsInProjects(patient: Patient) {
-    this.patientsInProjectsService.getPatientsInProjects()
-      .subscribe({
-        next: (val) => {
-          val.filter((el:PatientsInProjects)=>el.idPatient == patient.id)
-          .forEach((element:PatientsInProjects) => {
-            const el: PatientsInProjects = {
-              id: element.id,
-              idProject: element.idProject,
-              nameProject: element.nameProject,
-              idPatient: element.idPatient,
-              namePatient: patient.name,
-              approval: element.approval
-            }
-            
-          });
-        }
-      })
-  }
-
-  deletePatientsInProjects(idPatient: Number) {
-
-  }
 
 }

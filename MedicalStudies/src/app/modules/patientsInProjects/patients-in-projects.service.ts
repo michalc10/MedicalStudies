@@ -7,22 +7,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientsInProjectsService {
 
+  private api= "http://localhost:3000/patientsInProjects/";
   constructor(private http: HttpClient) {
   }
 
   postPatientsInProjects(patientsInProjects: PatientsInProjects) {
-    return this.http.post<any>("http://localhost:3000/patientsInProjects/", patientsInProjects);
+    return this.http.post<any>(this.api, patientsInProjects);
   }
 
   getPatientsInProjects() {
-    return this.http.get<any>("http://localhost:3000/patientsInProjects/");
+    return this.http.get<any>(this.api);
   }
 
   putPatientsInProjects(patientsInProjects: PatientsInProjects,id:number) {
-    return this.http.put<any>("http://localhost:3000/patientsInProjects/" + id, patientsInProjects);
+    return this.http.put<any>(this.api + id, patientsInProjects);
   }
 
   deletePatientsInProjects(id:number){
-    return this.http.delete<any>("http://localhost:3000/patientsInProjects/" + id);
+    return this.http.delete<any>(this.api + id);
   }
 }
