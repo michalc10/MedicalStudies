@@ -1,5 +1,5 @@
 # MedicalStudies
-Zadanie rekrutacyjne frontend Bee2code
+
 
 Technologia wykonania: Angular
 
